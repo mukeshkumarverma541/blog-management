@@ -1,0 +1,7 @@
+.navbar {
+    background-color: #42a5f521;
+}
+
+.navbar .nav-item .nav-link {
+    padding: 0 15px;
+}

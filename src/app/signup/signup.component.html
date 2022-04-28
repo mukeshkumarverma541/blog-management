@@ -1,0 +1,34 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="wrap">
+                    <h3 class="text-center mb-2">Sign Up</h3>
+                    <p class="text-center mb-5">Lorem ipsum dolor, sit amet elit. </p>
+                    <form [formGroup]="signUp" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" formControlName="email">
+                            <small class="text-danger" *ngIf="!signUp.controls['email'].valid && signUp.controls['email'].touched">
+                                Please enter valid email
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" formControlName="password">
+                            <small class="text-danger" *ngIf="!signUp.controls['password'].valid && signUp.controls['password'].touched">
+                                Please enter password
+                            </small>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success" [disabled]="!signUp.valid">Submit</button>
+                        </div>
+                        <div class="mt-4">
+                            Already have an account ? <a routerLink="/signin">Signin</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

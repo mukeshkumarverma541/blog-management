@@ -1,0 +1,13 @@
+.card .desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card .category {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}

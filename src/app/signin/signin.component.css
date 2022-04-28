@@ -1,0 +1,15 @@
+.wrap {
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light mb-5 py-3">
+    <div class="container">
+        <a class="navbar-brand" href="#">Blog Posts</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/posts">Blog Posts</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Category
+            </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li *ngFor="let c of categories">
+                            <a class="dropdown-item">{{c.category}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="add-post">Add Post</a>
+                </li>
+            </ul>
+            <form class="d-flex me-3">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+            <div>
+                <div *ngIf="!isLoggedIn">
+                    <a routerLink="signin" class="btn btn-primary me-4">Login</a>
+                </div>
+                <div *ngIf="isLoggedIn">
+                    <div class="dropdown">
+                        <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                         <div class="avatar">
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgSmojUgwjIB87c4Q0hLCAyl__oiTySWGWJUZtUNHlHjBALLzTsu_vMHYMaEwLts4QEoo&usqp=CAU" class="img-fluid" width="40px">
+                         </div> 
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" routerLink="profile">View Profile</a></li>
+                            <li><a class="dropdown-item" routerLink="profile" [queryParams]="{editMode: true}">Edit Profile</a></li>
+                            <li><a class="dropdown-item" routerLink="change-password">Change Password</a></li>
+                            <li><a class="dropdown-item" routerLink="forgot-password">Forgot Password</a></li>
+                            <li><a class="dropdown-item" (click)="signOut()">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

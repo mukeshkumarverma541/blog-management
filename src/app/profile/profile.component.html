@@ -1,0 +1,47 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="wrap">
+                    <div class="row mb-4">
+                        <div class="col">
+                            <h3>Profile</h3>
+                        </div>
+                        <div class="col" style="text-align: right;">
+                            <a routerLink="/profile" class="btn btn-primary" [queryParams]="{editMode: true}">Edit Profile</a>
+                        </div>
+                    </div>
+                    <p>Edit Mode : <span class="badge" [ngClass]="{
+                        'badge-success': !editMode, 
+                        'badge-danger' : editMode
+                         }">{{editMode}}</span>
+                    </p>
+                    <form [formGroup]="Form" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label>Name :</label>
+                            <p *ngIf="!editMode">{{profile.displayName}}</p>
+                            <input type="text" class="form-control" formControlName="name" *ngIf="editMode">
+                            <small class="text-danger" *ngIf="!Form.controls['name'].valid && Form.controls['name'].touched">
+                                Name is required
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label>Profile Picture URL :</label>
+                            <p *ngIf="!editMode">
+                                <img src="{{profile.photoUrl}}" class="img-fluid">
+                            </p>
+                            <input type="text" class="form-control" formControlName="picture" *ngIf="editMode">
+                            <small class="text-danger" *ngIf="!Form.controls['picture'].valid && Form.controls['picture'].touched">
+                                Pictureis required
+                            </small>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success me-4" *ngIf="editMode">Save Profile</button>
+                            <button type="button" class="btn btn-danger" (click)="onDiscard()" *ngIf="editMode">Discard</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

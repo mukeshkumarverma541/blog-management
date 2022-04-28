@@ -1,0 +1,23 @@
+<section>
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col">
+                <h3>Welcome Back, {{user ? user.displayName: 'User'}}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 mb-5" *ngFor="let post of posts">
+                <div class="card">
+                    <img src="{{post.image}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="category">{{post.category | uppercase}}</div>
+                        <h5 class="title">{{post.title}}</h5>
+                        <p class="desc">{{post.description}}</p>
+                        <a [routerLink]="['/post', post.postId]" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-success" (click)="filter('Tech')">Btn</button>
+    </div>
+</section>
